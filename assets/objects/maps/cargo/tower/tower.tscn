@@ -1,0 +1,197 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/materials/tower.tres" type="Material" id=1]
+[ext_resource path="res://assets/materials/roof.tres" type="Material" id=2]
+[ext_resource path="res://assets/materials/wall2.tres" type="Material" id=3]
+[ext_resource path="res://assets/materials/wood.tres" type="Material" id=4]
+
+[node name="tower" type="CSGCombiner"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.424107, 0 )
+use_in_baked_light = true
+use_collision = true
+
+[node name="tower" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.31391, 0 )
+radius = 4.0
+height = 10.0
+sides = 16
+material = ExtResource( 3 )
+
+[node name="CSGCylinder" type="CSGCylinder" parent="tower"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.83642, 0 )
+operation = 2
+radius = 3.84698
+sides = 16
+material = ExtResource( 1 )
+
+[node name="roof" type="CSGCylinder" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 14.847, 0 )
+radius = 5.0
+height = 4.0
+sides = 16
+cone = true
+material = ExtResource( 2 )
+
+[node name="roof2" type="CSGCylinder" parent="roof"]
+operation = 2
+radius = 3.0
+height = 4.0
+sides = 16
+cone = true
+material = ExtResource( 2 )
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.13879, 11, -2.66754 )
+width = 0.5
+height = 4.0
+depth = 0.5
+material = ExtResource( 4 )
+
+[node name="CSGBox2" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44938, 11, -2.66754 )
+width = 0.5
+height = 4.0
+depth = 0.5
+material = ExtResource( 4 )
+
+[node name="CSGBox3" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.44938, 11, 2.25045 )
+width = 0.5
+height = 4.0
+depth = 0.5
+material = ExtResource( 4 )
+
+[node name="CSGBox4" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.62108, 11, 2.25045 )
+width = 0.5
+height = 4.0
+depth = 0.5
+material = ExtResource( 4 )
+
+[node name="CSGBox5" type="CSGBox" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.610085, 5.15578 )
+use_in_baked_light = true
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox6" type="CSGBox" parent="."]
+transform = Transform( 0.948445, 0, 0.31694, 0, 1, 0, -0.31694, 0, 0.948445, 1.18701, 1.15887, 5.16105 )
+use_in_baked_light = true
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox7" type="CSGBox" parent="."]
+transform = Transform( 0.782923, 0, 0.622118, 0, 1, 0, -0.622118, 0, 0.782923, 2.53512, 1.67295, 4.21109 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox8" type="CSGBox" parent="."]
+transform = Transform( 0.58914, 0, 0.808031, 0, 1, 0, -0.808031, 0, 0.58914, 4.13321, 2.43683, 3.15495 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox9" type="CSGBox" parent="."]
+transform = Transform( 0.302669, 0, 0.953095, 0, 1, 0, -0.953095, 0, 0.302669, 4.83678, 2.98561, 2.19891 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox11" type="CSGBox" parent="."]
+transform = Transform( -0.189986, 0, 0.981787, 0, 1, 0, -0.981787, 0, -0.189986, 5.033, 4.10978, -1.03595 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox13" type="CSGBox" parent="."]
+transform = Transform( -0.929385, 0, -0.369115, 0, 1, 0, 0.369115, 0, -0.929385, -1.91267, 7.08959, -4.05027 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox14" type="CSGBox" parent="."]
+transform = Transform( -0.764483, 0, -0.644645, 0, 1, 0, 0.644645, 0, -0.764483, -3.0178, 7.63837, -3.61702 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox15" type="CSGBox" parent="."]
+transform = Transform( -0.498004, 0, -0.867176, 0, 1, 0, 0.867176, 0, -0.498004, -3.92007, 8.15245, -2.23654 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox16" type="CSGBox" parent="."]
+transform = Transform( -0.249281, 0, -0.968432, 0, 1, 0, 0.968432, 0, -0.249281, -5.01547, 8.91633, -0.665097 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox17" type="CSGBox" parent="."]
+transform = Transform( 0.0705058, 0, -0.997513, 0, 1, 0, 0.997513, 0, 0.0705058, -5.19637, 9.46511, 0.483137 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox18" type="CSGBox" parent="."]
+transform = Transform( 0.407312, 0, -0.91329, 0, 1, 0, 0.91329, 0, 0.407312, -4.73256, 9.97919, 2.02549 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox12" type="CSGBox" parent="."]
+transform = Transform( -0.49136, 0, 0.870957, 0, 1, 0, -0.870957, 0, -0.49136, 4.81264, 4.65856, -2.20235 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox19" type="CSGBox" parent="."]
+transform = Transform( -0.759533, 0, 0.65047, 0, 1, 0, -0.65047, 0, -0.759533, 3.62388, 5.17264, -3.34542 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox20" type="CSGBox" parent="."]
+transform = Transform( -0.905243, 0, 0.424895, 0, 1, 0, -0.424895, 0, -0.905243, 2.28335, 5.93652, -4.71375 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox21" type="CSGBox" parent="."]
+transform = Transform( -0.99324, 0, 0.116082, 0, 1, 0, -0.116082, 0, -0.99324, 1.21105, 6.4853, -5.22287 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox22" type="CSGBox" parent="."]
+transform = Transform( -0.973071, 0, -0.230508, 0, 1, 0, 0.230508, 0, -0.973071, -0.41294, 6.99938, -4.93574 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )
+
+[node name="CSGBox10" type="CSGBox" parent="."]
+transform = Transform( -0.0414396, 0, 0.999141, 0, 1, 0, -0.999141, 0, -0.0414396, 4.86341, 3.49969, 0.549942 )
+width = 1.0
+height = 0.1
+depth = 3.0
+material = ExtResource( 4 )

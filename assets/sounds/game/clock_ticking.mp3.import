@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/clock_ticking.mp3-60f7e4bbe148efb7774e55e61ce32380.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/game/clock_ticking.mp3"
+dest_files=[ "res://.import/clock_ticking.mp3-60f7e4bbe148efb7774e55e61ce32380.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

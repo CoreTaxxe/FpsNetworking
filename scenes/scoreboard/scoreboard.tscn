@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/scoreboard/scoreboard.gd" type="Script" id=2]
+
+[node name="scoreboard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="bg" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0705882, 0.0705882, 0.0705882, 0.529412 )
+
+[node name="header" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 0.987
+margin_left = 16.0
+margin_top = 16.0
+margin_right = -16.0
+margin_bottom = -504.2
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0, 0, 0, 1 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="header"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_right = -16.0
+custom_constants/separation = 10
+
+[node name="names" type="Label" parent="header/HBoxContainer"]
+margin_right = 636.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Name"
+valign = 1
+
+[node name="kills" type="Label" parent="header/HBoxContainer"]
+margin_left = 646.0
+margin_top = 23.0
+margin_right = 746.0
+margin_bottom = 49.0
+rect_min_size = Vector2( 100, 0 )
+text = "Kills"
+align = 2
+
+[node name="sep" type="Label" parent="header/HBoxContainer"]
+margin_left = 756.0
+margin_top = 23.0
+margin_right = 760.0
+margin_bottom = 49.0
+text = "|"
+
+[node name="deaths" type="Label" parent="header/HBoxContainer"]
+margin_left = 770.0
+margin_top = 23.0
+margin_right = 843.0
+margin_bottom = 49.0
+text = "Deaths"
+
+[node name="sep2" type="Label" parent="header/HBoxContainer"]
+margin_left = 853.0
+margin_top = 23.0
+margin_right = 888.0
+margin_bottom = 49.0
+text = "     "
+
+[node name="score" type="Label" parent="header/HBoxContainer"]
+margin_left = 898.0
+margin_top = 23.0
+margin_right = 960.0
+margin_bottom = 49.0
+text = "Score"
+
+[node name="entry_container" type="VBoxContainer" parent="."]
+anchor_left = 0.008
+anchor_top = 0.013
+anchor_right = 1.008
+anchor_bottom = 1.0
+margin_left = 7.808
+margin_top = 104.2
+margin_right = -24.192
+margin_bottom = -16.0
+custom_constants/separation = 2

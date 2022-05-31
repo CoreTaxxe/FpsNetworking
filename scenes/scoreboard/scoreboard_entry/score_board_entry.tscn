@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/scoreboard/scoreboard_entry/score_board_entry.gd" type="Script" id=2]
+
+[node name="scoreboard_entry" type="ColorRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 50 )
+color = Color( 0, 0, 0, 1 )
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_right = -16.0
+theme = ExtResource( 1 )
+custom_constants/separation = 10
+
+[node name="names" type="Label" parent="HBoxContainer"]
+margin_right = 672.0
+margin_bottom = 600.0
+size_flags_horizontal = 3
+size_flags_vertical = 7
+text = "Unknown"
+valign = 1
+
+[node name="kills" type="Label" parent="HBoxContainer"]
+margin_left = 682.0
+margin_top = 287.0
+margin_right = 782.0
+margin_bottom = 313.0
+grow_horizontal = 0
+rect_min_size = Vector2( 100, 0 )
+text = "0"
+align = 2
+
+[node name="sep" type="Label" parent="HBoxContainer"]
+margin_left = 792.0
+margin_top = 287.0
+margin_right = 796.0
+margin_bottom = 313.0
+text = "|"
+
+[node name="deaths" type="Label" parent="HBoxContainer"]
+margin_left = 806.0
+margin_top = 287.0
+margin_right = 906.0
+margin_bottom = 313.0
+rect_min_size = Vector2( 100, 0 )
+text = "0"
+
+[node name="sep2" type="Label" parent="HBoxContainer"]
+margin_left = 916.0
+margin_top = 287.0
+margin_right = 965.0
+margin_bottom = 313.0
+text = "       "
+
+[node name="score" type="Label" parent="HBoxContainer"]
+margin_left = 975.0
+margin_top = 287.0
+margin_right = 992.0
+margin_bottom = 313.0
+text = "0"

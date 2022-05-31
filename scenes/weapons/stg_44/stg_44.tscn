@@ -1,0 +1,228 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://assets/objects/weapons/stg_44/gun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/objects/weapons/stg_44/sounds/ak_1.wav" type="AudioStream" id=2]
+[ext_resource path="res://scenes/weapons/stg_44/stg_44.gd" type="Script" id=3]
+[ext_resource path="res://assets/objects/weapons/stg_44/muzzle_flash/flash.tscn" type="PackedScene" id=4]
+[ext_resource path="res://resources/shader/smoke.tres" type="Material" id=5]
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("flash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("flash:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0.1, 0.1, 0.1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("flash:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -0.3 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("muzzle_flash_light:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("smoke_particles:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fire"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath("flash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.02, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("flash:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0.1, 0.1, 0.1 ), Vector3( 0.2, 0.15, 0.3 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("flash:translation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, -0.3 ), Vector3( 0, 0, -0.53 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("muzzle_flash_light:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.01, 0.04 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="ParticlesMaterial" id=6]
+lifetime_randomness = 0.5
+trail_divisor = 10
+direction = Vector3( 0, 0, 1 )
+spread = 180.0
+gravity = Vector3( 0, 9.8, 0 )
+initial_velocity = 0.1
+scale = 0.1
+
+[sub_resource type="SphereMesh" id=7]
+radius = 0.1
+height = 0.5
+radial_segments = 16
+rings = 8
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("gun:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "reload"
+tracks/0/type = "value"
+tracks/0/path = NodePath("gun:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( -180, 0, 0 ), Vector3( -360, 0, 0 ) ]
+}
+
+[node name="stg_44" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="gun" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 0 )
+
+[node name="muzzle" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0129664, 0.128309, -0.627255 )
+
+[node name="flash" parent="muzzle" instance=ExtResource( 4 )]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, -0.3 )
+visible = false
+
+[node name="muzzle_flash_light" type="OmniLight" parent="muzzle"]
+visible = false
+light_color = Color( 1, 0.968627, 0.521569, 1 )
+light_energy = 1.2
+shadow_enabled = true
+omni_range = 10.0
+
+[node name="flash_animation_player" type="AnimationPlayer" parent="muzzle"]
+anims/RESET = SubResource( 3 )
+anims/fire = SubResource( 4 )
+
+[node name="smoke_particles" type="Particles" parent="muzzle"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00490779, 0 )
+material_override = ExtResource( 5 )
+emitting = false
+amount = 100
+lifetime = 0.5
+local_coords = false
+process_material = SubResource( 6 )
+draw_pass_1 = SubResource( 7 )
+
+[node name="shells" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0923112, 0.0968166, 0.0625325 )
+
+[node name="ads_attachment" type="Spatial" parent="."]
+
+[node name="ads_camera" type="Camera" parent="ads_attachment"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014, 0.21, 0.4 )
+fov = 60.0
+far = 8192.0
+
+[node name="hit_scan" type="RayCast" parent="ads_attachment/ads_camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -1000 )
+collision_mask = 27
+collide_with_areas = true
+
+[node name="sounds" type="Spatial" parent="."]
+
+[node name="shooting" type="AudioStreamPlayer3D" parent="sounds"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.152054, -0.456162 )
+stream = ExtResource( 2 )
+
+[node name="gun_animation_player" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 1 )
+anims/reload = SubResource( 2 )

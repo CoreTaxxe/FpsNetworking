@@ -1,0 +1,101 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/create_join_game/create_join_game.gd" type="Script" id=2]
+[ext_resource path="res://scenes/lobby/lobby.tscn" type="PackedScene" id=3]
+
+[node name="create_join_game" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 307.0
+margin_top = 247.0
+margin_right = 717.0
+margin_bottom = 352.0
+
+[node name="username_edit" type="LineEdit" parent="CenterContainer/VBoxContainer"]
+margin_right = 410.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 250, 40 )
+align = 1
+placeholder_text = "username"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 65.0
+margin_right = 410.0
+margin_bottom = 105.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="ip_edit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 40 )
+align = 1
+placeholder_text = "ip address"
+
+[node name="port_edit" type="LineEdit" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 210.0
+margin_right = 410.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 200, 40 )
+align = 1
+placeholder_text = "port"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -216.0
+margin_top = -192.0
+margin_right = 213.0
+margin_bottom = -142.0
+custom_constants/separation = 29
+alignment = 1
+
+[node name="join_button" type="Button" parent="HBoxContainer2"]
+margin_left = 25.0
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 175, 50 )
+text = "Join"
+
+[node name="host_button" type="Button" parent="HBoxContainer2"]
+margin_left = 229.0
+margin_right = 404.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 175, 50 )
+text = "Host"
+
+[node name="back_button" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -48.0
+margin_right = 87.0
+margin_bottom = -18.0
+text = "BACK"
+
+[node name="lobby_popup" type="PopupDialog" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="lobby" parent="lobby_popup" instance=ExtResource( 3 )]
+
+[connection signal="text_entered" from="CenterContainer/VBoxContainer/username_edit" to="." method="_on_username_edit_text_entered"]
+[connection signal="button_up" from="HBoxContainer2/join_button" to="." method="_on_join_button_button_up"]
+[connection signal="button_up" from="HBoxContainer2/host_button" to="." method="_on_host_button_button_up"]
+[connection signal="button_up" from="back_button" to="." method="_on_back_button_button_up"]

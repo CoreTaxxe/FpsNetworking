@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/objects/weapons/stg_44/muzzle_flash/flash.glb" type="PackedScene" id=1]
+
+[node name="flash" instance=ExtResource( 1 )]

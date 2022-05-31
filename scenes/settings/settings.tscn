@@ -1,0 +1,129 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/settings/settings.gd" type="Script" id=2]
+
+[node name="settings" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+tab_align = 0
+
+[node name="Game Settings" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 36.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Game Settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 36.0
+margin_top = 36.0
+margin_right = -58.0
+margin_bottom = -66.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Game Settings/VBoxContainer"]
+margin_right = 930.0
+margin_bottom = 60.0
+custom_constants/separation = 21
+
+[node name="sensitivity_info_label" type="Label" parent="TabContainer/Game Settings/VBoxContainer/HBoxContainer"]
+margin_top = 17.0
+margin_right = 186.0
+margin_bottom = 43.0
+text = "Mouse Sensitivity"
+
+[node name="sensitivity_slider" type="HSlider" parent="TabContainer/Game Settings/VBoxContainer/HBoxContainer"]
+margin_left = 207.0
+margin_right = 821.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = 0.01
+max_value = 10.0
+step = 0.01
+value = 0.01
+tick_count = 3
+ticks_on_borders = true
+
+[node name="sensitivity_edit" type="LineEdit" parent="TabContainer/Game Settings/VBoxContainer/HBoxContainer"]
+margin_left = 842.0
+margin_top = 15.0
+margin_right = 930.0
+margin_bottom = 45.0
+size_flags_vertical = 4
+text = "2"
+align = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Game Settings/VBoxContainer"]
+margin_top = 85.0
+margin_right = 930.0
+margin_bottom = 145.0
+
+[node name="music_volume" type="Label" parent="TabContainer/Game Settings/VBoxContainer/HBoxContainer2"]
+margin_top = 17.0
+margin_right = 138.0
+margin_bottom = 43.0
+text = "Music volume"
+
+[node name="volume_slide" type="HSlider" parent="TabContainer/Game Settings/VBoxContainer/HBoxContainer2"]
+margin_left = 142.0
+margin_right = 838.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+min_value = -50.0
+max_value = 50.0
+tick_count = 3
+ticks_on_borders = true
+
+[node name="volume_edit" type="LineEdit" parent="TabContainer/Game Settings/VBoxContainer/HBoxContainer2"]
+margin_left = 842.0
+margin_top = 15.0
+margin_right = 930.0
+margin_bottom = 45.0
+size_flags_vertical = 4
+text = "0"
+align = 1
+
+[node name="Controls" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 32.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="Graphic Settinngs" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 24.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="back_button" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -43.0
+margin_right = 79.0
+margin_bottom = -13.0
+text = "BACK"
+
+[connection signal="value_changed" from="TabContainer/Game Settings/VBoxContainer/HBoxContainer/sensitivity_slider" to="." method="_on_sensitivity_slider_value_changed"]
+[connection signal="text_entered" from="TabContainer/Game Settings/VBoxContainer/HBoxContainer/sensitivity_edit" to="." method="_on_sensitivity_edit_text_entered"]
+[connection signal="value_changed" from="TabContainer/Game Settings/VBoxContainer/HBoxContainer2/volume_slide" to="." method="_on_volume_slide_value_changed"]
+[connection signal="text_entered" from="TabContainer/Game Settings/VBoxContainer/HBoxContainer2/volume_edit" to="." method="_on_volume_edit_text_entered"]
+[connection signal="button_up" from="back_button" to="." method="_on_back_button_button_up"]

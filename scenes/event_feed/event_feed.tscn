@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scenes/event_feed/event_feed.gd" type="Script" id=1]
+[ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=2]
+
+[node name="event_feed" type="VBoxContainer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1024.0
+margin_bottom = 168.0
+theme = ExtResource( 2 )
+custom_constants/separation = 0
+script = ExtResource( 1 )

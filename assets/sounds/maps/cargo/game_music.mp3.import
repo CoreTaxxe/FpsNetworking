@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/game_music.mp3-ffb6e48b8ba1282c3f351bb2783bbeb4.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/maps/cargo/game_music.mp3"
+dest_files=[ "res://.import/game_music.mp3-ffb6e48b8ba1282c3f351bb2783bbeb4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,96 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://scenes/lobby/lobby.gd" type="Script" id=1]
+[ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=2]
+[ext_resource path="res://assets/fonts/HighlandGothicFLF.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/sounds/menu/menu_music.mp3" type="AudioStream" id=4]
+[ext_resource path="res://resources/themes/overrides/hover/ready_selected.tres" type="StyleBox" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="lobby" type="Control" groups=["lobby"]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 2 )
+script = ExtResource( 1 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="player_list" type="ItemList" parent="."]
+margin_left = 120.0
+margin_top = 32.0
+margin_right = 448.0
+margin_bottom = 504.0
+allow_reselect = true
+allow_rmb_select = true
+same_column_width = true
+icon_scale = 0.5
+
+[node name="ready_button" type="Button" parent="."]
+margin_left = 496.0
+margin_top = 448.0
+margin_right = 596.0
+margin_bottom = 498.0
+rect_min_size = Vector2( 100, 50 )
+custom_styles/hover = ExtResource( 5 )
+toggle_mode = true
+text = "Ready"
+
+[node name="back_button" type="Button" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 24.0
+margin_top = -56.0
+margin_right = 87.0
+margin_bottom = -26.0
+text = "BACK"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -384.0
+margin_top = 64.0
+margin_right = -184.0
+margin_bottom = 176.0
+
+[node name="lobby_counter_info_label" type="Label" parent="VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 26.0
+text = "Game starting in :"
+
+[node name="lobby_counter_label" type="Label" parent="VBoxContainer"]
+margin_top = 51.0
+margin_right = 200.0
+margin_bottom = 103.0
+custom_fonts/font = SubResource( 1 )
+text = "-"
+align = 1
+valign = 1
+
+[node name="lobby_counter" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="menu_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+bus = "music_bus"
+
+[node name="Label" type="Label" parent="."]
+margin_left = 592.0
+margin_top = 224.0
+margin_right = 960.0
+margin_bottom = 320.0
+text = "Mode : Deathmatch
+Map : Cargo
+
+Hints : There is no winning yet."
+
+[connection signal="button_up" from="ready_button" to="." method="_on_ready_button_button_up"]
+[connection signal="button_up" from="back_button" to="." method="_on_back_button_button_up"]
+[connection signal="timeout" from="lobby_counter" to="." method="_on_game_start_counter_timeout"]

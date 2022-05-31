@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://scenes/event_feed/event_feed.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/scoreboard/scoreboard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/main/main.gd" type="Script" id=3]
+[ext_resource path="res://scenes/shared_ui/waiting_for_players_panel/waiting_for_players.tscn" type="PackedScene" id=4]
+
+[node name="main" type="Spatial"]
+script = ExtResource( 3 )
+
+[node name="map" type="Spatial" parent="."]
+
+[node name="player_cont" type="Spatial" parent="."]
+
+[node name="bot_cont" type="Spatial" parent="."]
+
+[node name="waiting_for_players" parent="." instance=ExtResource( 4 )]
+
+[node name="event_feed" parent="." instance=ExtResource( 1 )]
+margin_left = -1000.0
+margin_top = 24.0
+margin_right = -32.0
+margin_bottom = 208.0
+
+[node name="scoreboard" parent="." instance=ExtResource( 2 )]
+margin_left = 56.0
+margin_top = 40.0
+margin_right = -56.0
+margin_bottom = -56.0

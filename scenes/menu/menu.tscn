@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://scenes/menu/menu.gd" type="Script" id=2]
+[ext_resource path="res://assets/sounds/menu/menu_music.mp3" type="AudioStream" id=3]
+[ext_resource path="res://scenes/settings/settings.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/create_join_game/create_join_game.tscn" type="PackedScene" id=5]
+
+[node name="menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -493.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 115.0
+margin_top = 237.0
+margin_right = 415.0
+margin_bottom = 362.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="player_button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_right = 300.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Play"
+align = 0
+
+[node name="settings_button" type="Button" parent="CenterContainer/VBoxContainer"]
+margin_top = 75.0
+margin_right = 300.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 300, 50 )
+text = "Settings"
+align = 0
+
+[node name="settings_popup" type="Popup" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="settings" parent="settings_popup" instance=ExtResource( 4 )]
+
+[node name="create_game_popup" type="Popup" parent="."]
+visible = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="create_join_game" parent="create_game_popup" instance=ExtResource( 5 )]
+
+[node name="menu_music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
+autoplay = true
+bus = "music_bus"
+
+[connection signal="button_up" from="CenterContainer/VBoxContainer/player_button" to="." method="_on_player_button_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/settings_button" to="." method="_on_settings_button_button_up"]
